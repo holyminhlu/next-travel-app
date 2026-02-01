@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Tour Search Results | TravelWise</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13a4ec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101c22",
+                        "teal-accent": "#0d9488",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .filled-star {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-[#111618] dark:text-white transition-colors duration-200">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-50 bg-white dark:bg-background-dark border-b border-solid border-[#f0f3f4] dark:border-white/10 px-4 md:px-10 lg:px-40 py-3">
+<div class="flex items-center justify-between gap-8 max-w-[1440px] mx-auto">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-2 text-[#111618] dark:text-white">
+<div class="size-8 text-primary">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M13.8261 17.4264C16.7203 18.1174 20.2244 18.5217 24 18.5217C27.7756 18.5217 31.2797 18.1174 34.1739 17.4264C36.9144 16.7722 39.9967 15.2331 41.3563 14.1648L24.8486 40.6391C24.4571 41.267 23.5429 41.267 23.1514 40.6391L6.64374 14.1648C8.00331 15.2331 11.0856 16.7722 13.8261 17.4264Z" fill="currentColor"></path>
+<path clip-rule="evenodd" d="M39.998 12.236C39.9944 12.2537 39.9875 12.2845 39.9748 12.3294C39.9436 12.4399 39.8949 12.5741 39.8346 12.7175C39.8168 12.7597 39.7989 12.8007 39.7813 12.8398C38.5103 13.7113 35.9788 14.9393 33.7095 15.4811C30.9875 16.131 27.6413 16.5217 24 16.5217C20.3587 16.5217 17.0125 16.131 14.2905 15.4811C12.0012 14.9346 9.44505 13.6897 8.18538 12.8168C8.17384 12.7925 8.16216 12.767 8.15052 12.7408C8.09919 12.6249 8.05721 12.5114 8.02977 12.411C8.00356 12.3152 8.00039 12.2667 8.00004 12.2612C8.00004 12.261 8 12.2607 8.00004 12.2612C8.00004 12.2359 8.0104 11.9233 8.68485 11.3686C9.34546 10.8254 10.4222 10.2469 11.9291 9.72276C14.9242 8.68098 19.1919 8 24 8C28.8081 8 33.0758 8.68098 36.0709 9.72276C37.5778 10.2469 38.6545 10.8254 39.3151 11.3686C39.9006 11.8501 39.9857 12.1489 39.998 12.236ZM4.95178 15.2312L21.4543 41.6973C22.6288 43.5809 25.3712 43.5809 26.5457 41.6973L43.0534 15.223C43.0709 15.1948 43.0878 15.1662 43.104 15.1371L41.3563 14.1648C43.104 15.1371 43.1038 15.1374 43.104 15.1371L43.1051 15.135L43.1065 15.1325L43.1101 15.1261L43.1199 15.1082C43.1276 15.094 43.1377 15.0754 43.1497 15.0527C43.1738 15.0075 43.2062 14.9455 43.244 14.8701C43.319 14.7208 43.4196 14.511 43.5217 14.2683C43.6901 13.8679 44 13.0689 44 12.2609C44 10.5573 43.003 9.22254 41.8558 8.2791C40.6947 7.32427 39.1354 6.55361 37.385 5.94477C33.8654 4.72057 29.133 4 24 4C18.867 4 14.1346 4.72057 10.615 5.94478C8.86463 6.55361 7.30529 7.32428 6.14419 8.27911C4.99695 9.22255 3.99999 10.5573 3.99999 12.2609C3.99999 13.1275 4.29264 13.9078 4.49321 14.3607C4.60375 14.6102 4.71348 14.8196 4.79687 14.9689C4.83898 15.0444 4.87547 15.1065 4.9035 15.1529C4.91754 15.1762 4.92954 15.1957 4.93916 15.2111L4.94662 15.223L4.95178 15.2312ZM35.9868 18.996L24 38.22L12.0131 18.996C12.4661 19.1391 12.9179 19.2658 13.3617 19.3718C16.4281 20.1039 20.0901 20.5217 24 20.5217C27.9099 20.5217 31.5719 20.1039 34.6383 19.3718C35.082 19.2658 35.5339 19.1391 35.9868 18.996Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<h2 class="text-xl font-black leading-tight tracking-[-0.015em]">TravelWise</h2>
+</div>
+<div class="hidden lg:flex flex-col min-w-80">
+<div class="flex w-full items-stretch rounded-lg h-10 bg-[#f0f3f4] dark:bg-white/10">
+<div class="flex items-center justify-center pl-4">
+<span class="material-symbols-outlined text-[#617c89]">search</span>
+</div>
+<input class="w-full border-none bg-transparent focus:ring-0 text-[#111618] dark:text-white placeholder:text-[#617c89] px-4 text-base font-normal" placeholder="Search destinations..." value="Sahara Dessert"/>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-8">
+<nav class="hidden xl:flex items-center gap-6">
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Explore</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Bookings</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Offers</a>
+</nav>
+<div class="flex gap-2">
+<button class="flex items-center justify-center rounded-lg size-10 bg-[#f0f3f4] dark:bg-white/10 text-[#111618] dark:text-white hover:bg-primary/10 transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 border-2 border-primary/20" data-alt="User avatar profile picture" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBp9pabdppbxnW8GViG_5O4qQ0QWI9xv64EfRd8FPDrjeJLpsRjPxJZNE0TeQ3P_Akf3sIT0Rmx1moaGkgHxRlFuFnrNfXW1_-EEMPDQN18qaCCc5G7wFAZbqX-6q-iLTAxuJ3HysXNbafy9wWudSFhV7c-WCyegkIXYNiFRdWkUBfsbxhR8dTEXU4iOJt-kDqB2ddv9ZO8VcgpuAVMGz4x0ltE5Sc7YHu37sOQ5t7KzDpACWUBqNnG3QWUhnmrWCgAgMcWj84Idw");'></div>
+</div>
+</div>
+</div>
+</header>
+<main class="max-w-[1440px] mx-auto px-4 lg:px-40 py-8">
+<!-- Breadcrumbs -->
+<nav class="flex flex-wrap gap-2 mb-6">
+<a class="text-[#617c89] text-sm font-medium hover:text-primary transition-colors" href="#">Home</a>
+<span class="text-[#617c89] text-sm">/</span>
+<a class="text-[#617c89] text-sm font-medium hover:text-primary transition-colors" href="#">North Africa</a>
+<span class="text-[#617c89] text-sm">/</span>
+<span class="text-[#111618] dark:text-white text-sm font-semibold">Sahara Tours</span>
+</nav>
+<!-- Page Heading & Sort -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+<div class="flex flex-col gap-2">
+<h1 class="text-[#111618] dark:text-white text-4xl font-black leading-tight tracking-[-0.033em]">Explore Tours in Sahara</h1>
+<p class="text-[#617c89] text-base font-normal">124 breathtaking tours found for your destination</p>
+</div>
+<div class="flex items-center gap-3">
+<span class="text-[#617c89] text-sm font-medium whitespace-nowrap">Sort by:</span>
+<select class="form-select rounded-lg border-none bg-white dark:bg-white/10 text-sm font-semibold focus:ring-primary h-10 px-4 min-w-[160px]">
+<option>Popularity</option>
+<option>Price: Low to High</option>
+<option>Price: High to Low</option>
+<option>Highest Rated</option>
+</select>
+</div>
+</div>
+<div class="flex flex-col lg:flex-row gap-8">
+<!-- Sidebar Filters -->
+<aside class="w-full lg:w-72 flex-shrink-0">
+<div class="sticky top-24 flex flex-col gap-8 bg-white dark:bg-white/5 p-6 rounded-xl shadow-sm border border-[#f0f3f4] dark:border-white/10">
+<div>
+<div class="flex items-center justify-between mb-4">
+<h3 class="text-[#111618] dark:text-white font-bold text-lg">Filters</h3>
+<button class="text-primary text-xs font-bold hover:underline">Clear All</button>
+</div>
+<!-- Price Range Slider Component -->
+<div class="mb-8">
+<p class="text-[#111618] dark:text-white text-sm font-bold mb-4">Price Range</p>
+<div class="flex h-[38px] w-full pt-1.5 px-1">
+<div class="flex h-1.5 w-full rounded-full bg-[#dbe2e6] dark:bg-white/10 relative">
+<div class="absolute left-[15%] right-[25%] h-1.5 bg-primary rounded-full"></div>
+<div class="absolute left-[15%] -top-1.5 flex flex-col items-center gap-1 -translate-x-1/2">
+<div class="size-4 rounded-full bg-white dark:bg-white border-2 border-primary shadow-md"></div>
+<p class="text-[#111618] dark:text-white text-[10px] font-bold mt-1">$200</p>
+</div>
+<div class="absolute right-[25%] -top-1.5 flex flex-col items-center gap-1 translate-x-1/2">
+<div class="size-4 rounded-full bg-white dark:bg-white border-2 border-primary shadow-md"></div>
+<p class="text-[#111618] dark:text-white text-[10px] font-bold mt-1">$3,500</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Star Rating -->
+<div class="mb-8">
+<p class="text-[#111618] dark:text-white text-sm font-bold mb-3">Star Rating</p>
+<div class="flex flex-col gap-2">
+<label class="flex items-center gap-3 cursor-pointer group">
+<input checked="" class="rounded text-primary focus:ring-primary bg-background-light dark:bg-white/10 border-none" type="checkbox"/>
+<div class="flex text-yellow-400">
+<span class="material-symbols-outlined text-sm filled-star">star</span>
+<span class="material-symbols-outlined text-sm filled-star">star</span>
+<span class="material-symbols-outlined text-sm filled-star">star</span>
+<span class="material-symbols-outlined text-sm filled-star">star</span>
+<span class="material-symbols-outlined text-sm filled-star">star</span>
+</div>
+<span class="text-xs text-[#617c89]">5 Stars</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer">
+<input checked="" class="rounded text-primary focus:ring-primary bg-background-light dark:bg-white/10 border-none" type="checkbox"/>
+<div class="flex text-yellow-400">
+<span class="material-symbols-outlined text-sm filled-star">star</span>
+<span class="material-symbols-outlined text-sm filled-star">star</span>
+<span class="material-symbols-outlined text-sm filled-star">star</span>
+<span class="material-symbols-outlined text-sm filled-star">star</span>
+<span class="material-symbols-outlined text-sm">star</span>
+</div>
+<span class="text-xs text-[#617c89]">4+ Stars</span>
+</label>
+</div>
+</div>
+<!-- Duration -->
+<div class="mb-8">
+<p class="text-[#111618] dark:text-white text-sm font-bold mb-3">Duration</p>
+<div class="flex flex-col gap-2">
+<label class="flex items-center gap-3 cursor-pointer">
+<input class="rounded text-primary focus:ring-primary bg-background-light dark:bg-white/10 border-none" type="checkbox"/>
+<span class="text-sm font-medium">1-3 Days</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer">
+<input checked="" class="rounded text-primary focus:ring-primary bg-background-light dark:bg-white/10 border-none" type="checkbox"/>
+<span class="text-sm font-medium">4-7 Days</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer">
+<input class="rounded text-primary focus:ring-primary bg-background-light dark:bg-white/10 border-none" type="checkbox"/>
+<span class="text-sm font-medium">8+ Days</span>
+</label>
+</div>
+</div>
+<!-- Travel Type -->
+<div class="mb-4">
+<p class="text-[#111618] dark:text-white text-sm font-bold mb-3">Travel Type</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1.5 bg-primary text-white rounded-full text-xs font-bold cursor-pointer">Adventure</span>
+<span class="px-3 py-1.5 bg-background-light dark:bg-white/10 text-[#617c89] rounded-full text-xs font-bold hover:bg-primary/20 cursor-pointer transition-colors">Luxury</span>
+<span class="px-3 py-1.5 bg-background-light dark:bg-white/10 text-[#617c89] rounded-full text-xs font-bold hover:bg-primary/20 cursor-pointer transition-colors">Family</span>
+<span class="px-3 py-1.5 bg-background-light dark:bg-white/10 text-[#617c89] rounded-full text-xs font-bold hover:bg-primary/20 cursor-pointer transition-colors">Group</span>
+</div>
+</div>
+</div>
+</div>
+</aside>
+<!-- Grid of Tour Cards -->
+<div class="flex-1">
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+<!-- Tour Card 1 -->
+<div class="group bg-white dark:bg-white/5 rounded-xl overflow-hidden shadow-sm border border-[#f0f3f4] dark:border-white/10 hover:shadow-xl transition-all duration-300 flex flex-col">
+<div class="relative h-56 overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center group-hover:scale-110 transition-transform duration-500" data-alt="Sunset camel trek in Sahara Desert dunes" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDMWT-4A1tzGGejQLYMsGKmmE9Dw6Gr9LDOBc0xzQhXwNsvejzIAMLl1OhQs90jdg2M3LDtrEtMpi6I_2yHx7Y0pv3lOTlfG1Qv94KVOWC3NEGYConw1ivtu1eGo8jgEk0xJADgXX6qSS_HcdJck-1Jpu7pRaaynXHQgZ8bt1Bu04RL6O20nFQOV4sBSYw_unyHRhBClOsMW6cTV7ewVlnXPcmaaAfDUBYokus51CB9jJ1rn4HtkSi3u3wCWyN5qWMKkutuqUzPag');"></div>
+<div class="absolute top-4 right-4 bg-teal-accent text-white px-3 py-1 rounded-lg font-black shadow-lg">
+                                from $450
+                            </div>
+<div class="absolute bottom-4 left-4 bg-white/90 dark:bg-black/70 backdrop-blur-md px-2 py-1 rounded-md flex items-center gap-1">
+<span class="material-symbols-outlined text-yellow-500 text-xs filled-star">star</span>
+<span class="text-xs font-bold">4.9 (1.2k)</span>
+</div>
+</div>
+<div class="p-5 flex flex-col flex-1">
+<h3 class="text-lg font-bold mb-2 group-hover:text-primary transition-colors">Golden Dunes Expedition</h3>
+<p class="text-[#617c89] text-sm leading-relaxed mb-4 line-clamp-2">Experience the magic of the Sahara with our luxury desert camp and traditional camel trek under the starlit sky.</p>
+<div class="mt-auto flex items-center justify-between">
+<div class="flex items-center gap-2 text-[#617c89]">
+<span class="material-symbols-outlined text-sm">schedule</span>
+<span class="text-xs font-medium">4 Days</span>
+</div>
+<button class="bg-primary text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-primary/90 transition-colors">View Details</button>
+</div>
+</div>
+</div>
+<!-- Tour Card 2 -->
+<div class="group bg-white dark:bg-white/5 rounded-xl overflow-hidden shadow-sm border border-[#f0f3f4] dark:border-white/10 hover:shadow-xl transition-all duration-300 flex flex-col">
+<div class="relative h-56 overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center group-hover:scale-110 transition-transform duration-500" data-alt="Oasis oasis with palm trees in desert" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBjgYSlRTUAB40ZHi9vdjZCm85FuuGWHoe2Udu02pA8kOynhlTcwEreWYpQpnCWnjbDFQcDa-dtvLvggf2KiaSKAMpVarlOuj7y0MxpuhMxLjLHQJwDKxptJ2xnDZNn2se49TsGnDTVmYGN5-hEPFtGk6rDX17Q-Vwv20kKY6fYNWvbQPoT2-q_ccTD10Hj4nuV__EEhr8S2dNrOoLn3ZWT0yDOSAdr-44ROLOFzX-bZ63eqWROYQwQT9eQ-FOkUXu9h3SL-1njTg');"></div>
+<div class="absolute top-4 right-4 bg-teal-accent text-white px-3 py-1 rounded-lg font-black shadow-lg">
+                                from $890
+                            </div>
+<div class="absolute bottom-4 left-4 bg-white/90 dark:bg-black/70 backdrop-blur-md px-2 py-1 rounded-md flex items-center gap-1">
+<span class="material-symbols-outlined text-yellow-500 text-xs filled-star">star</span>
+<span class="text-xs font-bold">4.8 (850)</span>
+</div>
+</div>
+<div class="p-5 flex flex-col flex-1">
+<h3 class="text-lg font-bold mb-2 group-hover:text-primary transition-colors">Hidden Oasis Sanctuary</h3>
+<p class="text-[#617c89] text-sm leading-relaxed mb-4 line-clamp-2">Discover hidden water springs and ancient palm groves in this exclusive private 4x4 off-road adventure.</p>
+<div class="mt-auto flex items-center justify-between">
+<div class="flex items-center gap-2 text-[#617c89]">
+<span class="material-symbols-outlined text-sm">schedule</span>
+<span class="text-xs font-medium">7 Days</span>
+</div>
+<button class="bg-primary text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-primary/90 transition-colors">View Details</button>
+</div>
+</div>
+</div>
+<!-- Tour Card 3 -->
+<div class="group bg-white dark:bg-white/5 rounded-xl overflow-hidden shadow-sm border border-[#f0f3f4] dark:border-white/10 hover:shadow-xl transition-all duration-300 flex flex-col">
+<div class="relative h-56 overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center group-hover:scale-110 transition-transform duration-500" data-alt="Berber village in the Atlas mountains" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCP83w19FoyiPJIBuJdAy38HwiMJLkrR4Mt0Ywnx_IlRNn2IgxN6C1xVsf44ADOsGNWniomPlb5xMrwyzH2a2O3MWy1d4o64p5gjnJSujcG9WYvSBDVgCm9phomW5L1tp2-kRizG8I-sy_YEnZsFs0tDd8ztjMjmMneEVQOHqyn4OSHmbvX6CH3Clumne3IYQ1vtCHiBqe1UbRcyLxeOn69YYvRPh6QHd7wkvpL_dZ238xYXCQYJ2WdSGCSn3ZOfX8usCOklzLExw');"></div>
+<div class="absolute top-4 right-4 bg-teal-accent text-white px-3 py-1 rounded-lg font-black shadow-lg">
+                                from $320
+                            </div>
+<div class="absolute bottom-4 left-4 bg-white/90 dark:bg-black/70 backdrop-blur-md px-2 py-1 rounded-md flex items-center gap-1">
+<span class="material-symbols-outlined text-yellow-500 text-xs filled-star">star</span>
+<span class="text-xs font-bold">4.7 (420)</span>
+</div>
+</div>
+<div class="p-5 flex flex-col flex-1">
+<h3 class="text-lg font-bold mb-2 group-hover:text-primary transition-colors">Berber Village Discovery</h3>
+<p class="text-[#617c89] text-sm leading-relaxed mb-4 line-clamp-2">Immerse yourself in the rich Berber culture. Visit local markets and enjoy home-cooked tagine with a local family.</p>
+<div class="mt-auto flex items-center justify-between">
+<div class="flex items-center gap-2 text-[#617c89]">
+<span class="material-symbols-outlined text-sm">schedule</span>
+<span class="text-xs font-medium">3 Days</span>
+</div>
+<button class="bg-primary text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-primary/90 transition-colors">View Details</button>
+</div>
+</div>
+</div>
+<!-- Tour Card 4 -->
+<div class="group bg-white dark:bg-white/5 rounded-xl overflow-hidden shadow-sm border border-[#f0f3f4] dark:border-white/10 hover:shadow-xl transition-all duration-300 flex flex-col">
+<div class="relative h-56 overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center group-hover:scale-110 transition-transform duration-500" data-alt="Milky way galaxy over desert camp" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB9Ukc477DWsESB06qkgw9Cf5oA5wlURtro8pPz7mbmaqdDlLE_J1YUmnPABs5adEJry3PJJGYiMWYxhRL-chIJzEt-MJB3sWGPM7jPeO72fZNpAYOTeTuXo0QPqYnBqQDdna7W2s5WvchpepEzgZ_6WYzb6DWwJgtB6z1p9GR-mESXLeEboXRz56V-qdiwALsNdCkS5ud-BMT55ksmdnYhE5D3v1vXv_6g2fetNqI8UxMtpjwRHjD1AHtuXAqSIKiJDGGtuXlEBg');"></div>
+<div class="absolute top-4 right-4 bg-teal-accent text-white px-3 py-1 rounded-lg font-black shadow-lg">
+                                from $670
+                            </div>
+<div class="absolute bottom-4 left-4 bg-white/90 dark:bg-black/70 backdrop-blur-md px-2 py-1 rounded-md flex items-center gap-1">
+<span class="material-symbols-outlined text-yellow-500 text-xs filled-star">star</span>
+<span class="text-xs font-bold">5.0 (215)</span>
+</div>
+</div>
+<div class="p-5 flex flex-col flex-1">
+<h3 class="text-lg font-bold mb-2 group-hover:text-primary transition-colors">Starlight Astronomy Tour</h3>
+<p class="text-[#617c89] text-sm leading-relaxed mb-4 line-clamp-2">Join expert astronomers for a crystal-clear view of the cosmos in one of the darkest places on Earth.</p>
+<div class="mt-auto flex items-center justify-between">
+<div class="flex items-center gap-2 text-[#617c89]">
+<span class="material-symbols-outlined text-sm">schedule</span>
+<span class="text-xs font-medium">5 Days</span>
+</div>
+<button class="bg-primary text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-primary/90 transition-colors">View Details</button>
+</div>
+</div>
+</div>
+<!-- Tour Card 5 -->
+<div class="group bg-white dark:bg-white/5 rounded-xl overflow-hidden shadow-sm border border-[#f0f3f4] dark:border-white/10 hover:shadow-xl transition-all duration-300 flex flex-col">
+<div class="relative h-56 overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center group-hover:scale-110 transition-transform duration-500" data-alt="Ancient sandstone city ruins" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBs9XOc2mW7JOXZE_SgIlZ3L-Lz2sjWI9dFvm-Ucd3DcXTBDM3gBjggUM2dRCuODewR0ehLb73IkSo7oTZJyVxMucjANj_gTju4Ah4JmsBnn3MjOFG6rxF7gZ8Xaa0uCcDIDHeaPJTqHlR41WUqvfB9V2l4ku9IVUPZ1bZlrsqx9vxDnCLjX5nz939s8C-wDTuFJVLXSP0MqBW_fEedDSwANqJWouWM_azlu98aoMmQiUG_iebnsGYxCqxxhCCOGDROdjovOBjZvA');"></div>
+<div class="absolute top-4 right-4 bg-teal-accent text-white px-3 py-1 rounded-lg font-black shadow-lg">
+                                from $550
+                            </div>
+<div class="absolute bottom-4 left-4 bg-white/90 dark:bg-black/70 backdrop-blur-md px-2 py-1 rounded-md flex items-center gap-1">
+<span class="material-symbols-outlined text-yellow-500 text-xs filled-star">star</span>
+<span class="text-xs font-bold">4.6 (180)</span>
+</div>
+</div>
+<div class="p-5 flex flex-col flex-1">
+<h3 class="text-lg font-bold mb-2 group-hover:text-primary transition-colors">Legends of the Sands</h3>
+<p class="text-[#617c89] text-sm leading-relaxed mb-4 line-clamp-2">Explore ancient ruins and learn about the civilizations that once thrived in the heart of the great desert.</p>
+<div class="mt-auto flex items-center justify-between">
+<div class="flex items-center gap-2 text-[#617c89]">
+<span class="material-symbols-outlined text-sm">schedule</span>
+<span class="text-xs font-medium">6 Days</span>
+</div>
+<button class="bg-primary text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-primary/90 transition-colors">View Details</button>
+</div>
+</div>
+</div>
+<!-- Tour Card 6 -->
+<div class="group bg-white dark:bg-white/5 rounded-xl overflow-hidden shadow-sm border border-[#f0f3f4] dark:border-white/10 hover:shadow-xl transition-all duration-300 flex flex-col">
+<div class="relative h-56 overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center group-hover:scale-110 transition-transform duration-500" data-alt="Desert safari jeep in action" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBKbwcIor1RFcrHYWUo_ESYxMvZ0GDJFeDbPUwd2P47MTnCjEmnGY5ROiNaZWwqibb-A3nmL-iO3f5ZsDQRpnAslDa9UBMhW04yPjKDzXbkzio5fb9Wbrh8zq9vJITMJ6_lop4DxQcELFpKg4WQKRCH6oSc502itoEzBF_fkL6_aFATwo2bxq--dTnvNyZX5LB1Q1t0tpqgK4hiI3EQGryKSnip-8Hk4m6usEBCe-007fiY-ymFfqxuOsCGPNeC04uXA-UWbcZHuw');"></div>
+<div class="absolute top-4 right-4 bg-teal-accent text-white px-3 py-1 rounded-lg font-black shadow-lg">
+                                from $1,200
+                            </div>
+<div class="absolute bottom-4 left-4 bg-white/90 dark:bg-black/70 backdrop-blur-md px-2 py-1 rounded-md flex items-center gap-1">
+<span class="material-symbols-outlined text-yellow-500 text-xs filled-star">star</span>
+<span class="text-xs font-bold">4.9 (560)</span>
+</div>
+</div>
+<div class="p-5 flex flex-col flex-1">
+<h3 class="text-lg font-bold mb-2 group-hover:text-primary transition-colors">Ultimate Luxury Crossing</h3>
+<p class="text-[#617c89] text-sm leading-relaxed mb-4 line-clamp-2">A high-end traverse of the Sahara with premium logistics, gourmet meals, and five-star glamping facilities.</p>
+<div class="mt-auto flex items-center justify-between">
+<div class="flex items-center gap-2 text-[#617c89]">
+<span class="material-symbols-outlined text-sm">schedule</span>
+<span class="text-xs font-medium">10 Days</span>
+</div>
+<button class="bg-primary text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-primary/90 transition-colors">View Details</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Pagination -->
+<div class="mt-12 flex justify-center items-center gap-2">
+<button class="size-10 flex items-center justify-center rounded-lg border border-[#f0f3f4] dark:border-white/10 hover:bg-primary hover:text-white transition-colors">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="size-10 flex items-center justify-center rounded-lg bg-primary text-white font-bold">1</button>
+<button class="size-10 flex items-center justify-center rounded-lg border border-[#f0f3f4] dark:border-white/10 hover:bg-primary/10 transition-colors font-bold">2</button>
+<button class="size-10 flex items-center justify-center rounded-lg border border-[#f0f3f4] dark:border-white/10 hover:bg-primary/10 transition-colors font-bold">3</button>
+<span class="px-2">...</span>
+<button class="size-10 flex items-center justify-center rounded-lg border border-[#f0f3f4] dark:border-white/10 hover:bg-primary/10 transition-colors font-bold">12</button>
+<button class="size-10 flex items-center justify-center rounded-lg border border-[#f0f3f4] dark:border-white/10 hover:bg-primary hover:text-white transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<footer class="mt-20 py-10 border-t border-[#f0f3f4] dark:border-white/10 bg-white dark:bg-background-dark">
+<div class="max-w-[1440px] mx-auto px-4 lg:px-40 flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="flex items-center gap-2 text-[#111618] dark:text-white opacity-60">
+<span class="text-sm font-bold">© 2024 TravelWise Inc. All rights reserved.</span>
+</div>
+<div class="flex gap-8 text-sm font-medium text-[#617c89]">
+<a class="hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="hover:text-primary transition-colors" href="#">Support</a>
+</div>
+</div>
+</footer>
+</body></html>

@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Destination Detail View - TravelEase</title>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13a4ec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101c22",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .itinerary-line::before {
+            content: '';
+            position: absolute;
+            left: 11px;
+            top: 24px;
+            bottom: 0;
+            width: 2px;
+            background: #e5e7eb;
+        }
+        .itinerary-item:last-child .itinerary-line::before {
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-[#111618] dark:text-white transition-colors duration-200">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-50 w-full bg-white dark:bg-background-dark border-b border-solid border-[#f0f3f4] dark:border-gray-800 px-6 lg:px-40 py-3">
+<div class="max-w-[1280px] mx-auto flex items-center justify-between whitespace-nowrap">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-2 text-primary">
+<div class="size-8">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M39.475 21.6262C40.358 21.4363 40.6863 21.5589 40.7581 21.5934C40.7876 21.655 40.8547 21.857 40.8082 22.3336C40.7408 23.0255 40.4502 24.0046 39.8572 25.2301C38.6799 27.6631 36.5085 30.6631 33.5858 33.5858C30.6631 36.5085 27.6632 38.6799 25.2301 39.8572C24.0046 40.4502 23.0255 40.7407 22.3336 40.8082C21.8571 40.8547 21.6551 40.7875 21.5934 40.7581C21.5589 40.6863 21.4363 40.358 21.6262 39.475C21.8562 38.4054 22.4689 36.9657 23.5038 35.2817C24.7575 33.2417 26.5497 30.9744 28.7621 28.762C30.9744 26.5497 33.2417 24.7574 35.2817 23.5037C36.9657 22.4689 38.4054 21.8562 39.475 21.6262ZM4.41189 29.2403L18.7597 43.5881C19.8813 44.7097 21.4027 44.9179 22.7217 44.7893C24.0585 44.659 25.5148 44.1631 26.9723 43.4579C29.9052 42.0387 33.2618 39.5667 36.4142 36.4142C39.5667 33.2618 42.0387 29.9052 43.4579 26.9723C44.1631 25.5148 44.659 24.0585 44.7893 22.7217C44.9179 21.4027 44.7097 19.8813 43.5881 18.7597L29.2403 4.41187C27.8527 3.02428 25.8765 3.02573 24.2861 3.36776C22.6081 3.72863 20.7334 4.58419 18.8396 5.74801C16.4978 7.18716 13.9881 9.18353 11.5858 11.5858C9.18354 13.988 7.18717 16.4978 5.74802 18.8396C4.58421 20.7334 3.72865 22.6081 3.36778 24.2861C3.02574 25.8765 3.02429 27.8527 4.41189 29.2403Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<h2 class="text-xl font-bold leading-tight tracking-tight text-[#111618] dark:text-white">TravelEase</h2>
+</div>
+<label class="hidden md:flex flex-col min-w-40 h-10 max-w-64">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-full overflow-hidden">
+<div class="text-[#617c89] flex border-none bg-background-light dark:bg-gray-800 items-center justify-center pl-4">
+<span class="material-symbols-outlined text-[20px]">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none border-none bg-background-light dark:bg-gray-800 text-[#111618] dark:text-white focus:ring-0 h-full placeholder:text-[#617c89] px-4 pl-2 text-sm font-normal" placeholder="Search destinations" value=""/>
+</div>
+</label>
+</div>
+<div class="flex items-center gap-8">
+<nav class="hidden lg:flex items-center gap-9">
+<a class="text-[#111618] dark:text-white text-sm font-medium hover:text-primary transition-colors" href="#">Destinations</a>
+<a class="text-[#111618] dark:text-white text-sm font-medium hover:text-primary transition-colors" href="#">Tours</a>
+<a class="text-[#111618] dark:text-white text-sm font-medium hover:text-primary transition-colors" href="#">Deals</a>
+<a class="text-[#111618] dark:text-white text-sm font-medium hover:text-primary transition-colors" href="#">My Bookings</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="flex min-w-[84px] cursor-pointer items-center justify-center rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold hover:bg-primary/90 transition-colors">
+                        Sign In
+                    </button>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 border-2 border-primary/20" data-alt="User profile avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC2tER55CUuqEwLCBT8JSxWdHHw5N_25K1pMUP2nLeH3zJpugAsQqzuN7bRZvx0nAwozbrGJvn5dVK3V_f9T9EmoZg3xaDC5YDBSlr2T0VNJbqcauTtTfZgQgAUjz0HL4QFMUL8VPr5krnKLWcLYUtiUhMdbhq5MXQVZ1oXRt7P1Gixv504mxNPfsL0Y8sb4iidQ2hEDS72Z65G6iF49SkI1WF4VJ5wNFyFGgXtZUjlLpI6TsmYJ8V9gv2S7Mp_bGS2A8YrhqQbjQ");'></div>
+</div>
+</div>
+</div>
+</header>
+<main class="max-w-[1280px] mx-auto px-6 lg:px-40 py-8">
+<!-- Breadcrumbs -->
+<nav class="flex flex-wrap gap-2 mb-6">
+<a class="text-[#617c89] text-sm font-medium hover:text-primary" href="#">Home</a>
+<span class="text-[#617c89] text-sm font-medium">/</span>
+<a class="text-[#617c89] text-sm font-medium hover:text-primary" href="#">Destinations</a>
+<span class="text-[#617c89] text-sm font-medium">/</span>
+<span class="text-primary text-sm font-medium">Bali Spiritual Retreat</span>
+</nav>
+<!-- Headline -->
+<div class="mb-8">
+<h1 class="text-[#111618] dark:text-white tracking-tight text-4xl font-extrabold leading-tight mb-2">Bali Spiritual Retreat &amp; Island Explorer</h1>
+<div class="flex items-center gap-4 text-[#617c89]">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm text-primary">location_on</span>
+<span class="text-sm">Ubud, Bali, Indonesia</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm text-yellow-500" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-sm font-bold text-[#111618] dark:text-white">4.9</span>
+<span class="text-sm">(248 reviews)</span>
+</div>
+</div>
+</div>
+<!-- Carousel Gallery -->
+<div class="mb-12 overflow-hidden rounded-xl bg-white dark:bg-background-dark shadow-sm">
+<div class="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide [-ms-scrollbar-style:none] [scrollbar-width:none] [&amp;::-webkit-scrollbar]:hidden">
+<div class="flex items-stretch gap-4 p-2">
+<div class="relative min-w-[700px] h-[450px] snap-center rounded-lg overflow-hidden group">
+<div class="w-full h-full bg-center bg-no-repeat bg-cover" data-alt="Main hero shot of a tropical temple at sunrise" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDeCtIRRkLXqyOfszi9d5wYRa5Rk9oy-Iq9SSVxpWIcVVt9UpR-6DDpkjsfMyRSN2KrVjTI4hAQcQLGpp6KVlYJYhRJ2pgV-5vOlTaGoqIjdenBXi2ivRu4f8kXZJLdzLHA-DIlsjHnLVpfncVx8BOerG__0NdYhSnOZXPZnvtq9P9uF1se-M3NmhBegwG-XjNHzpTMEI879v15SpZADPRnCWxgyV211o1cPtoucOcyMs1xEjuHZh2GYX4pj2DD8oK1bDF6ImbO1Q");'></div>
+<div class="absolute bottom-4 right-4">
+<button class="bg-white/90 backdrop-blur px-4 py-2 rounded-lg text-sm font-bold flex items-center gap-2 shadow-lg">
+<span class="material-symbols-outlined">grid_view</span> View Gallery
+                            </button>
+</div>
+</div>
+<div class="min-w-[350px] h-[450px] snap-center rounded-lg overflow-hidden">
+<div class="w-full h-[217px] bg-center bg-no-repeat bg-cover mb-[16px] rounded-lg" data-alt="Close up of Balinese spiritual offering" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB12dMf-sZus6Q7KxZ-a7n59vpJ5pKfE5fDnBhGxFu2B35ulvGlwjkjiXrJrkkZdZT31qeOFQYFXxaVVmDX9eXYwQXPYQE8XLayncAruhAXYJ-sBNGaGT3iGwGNr2GZQ5kqtROlv0ocTbxz_NYvPJx-4IkL_PUTpjNgJ7pM5jO0_7Hs-TJWL3UuggakL8XowpSx5SQpRYE0Opyv_zKWkznjLymfbGtMa9CA2L8RimVGS3_DWx1aQWoBuS0NXaJKcSl-wUM6oy_hgw");'></div>
+<div class="w-full h-[217px] bg-center bg-no-repeat bg-cover rounded-lg" data-alt="Infinity pool overlooking lush green jungle" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA4b1Q5xlompefD2Lg8H_V43vT8NE2kUxrfHzAobExL_PMylCVyweh2ywkrIhLBRxlBhsPDveMEfnNcNfTBwvx3ldsL_nimFS7CH7KfF-BmiAdr9OjGFPKt2KIq0jUV3AVAlMdq8j5wBDUAThr0O1-C6JWCvo4wCAhgxjn9nVXaiMOR9a2J5Ung-UO2Kic9GJAyGPKj2w0bKkeuTRPg2CVynfZBHiOc8G612cafDAXaOj8gWJP_JB1qt3pPxL4NdDc26ULoxVK7vg");'></div>
+</div>
+<div class="min-w-[350px] h-[450px] snap-center rounded-lg overflow-hidden">
+<div class="w-full h-full bg-center bg-no-repeat bg-cover" data-alt="Traditional Balinese architecture and gardens" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBZQCPgf12gc3YnpJhDKZL8HjOpvV1Xi21nm6tvMLnmUGYWlFwFYRNCQDqXM13bn-ZYhQSDqzbeD5s0MxsdxSdX1L01887f2pVmfEiggtoI2_rY8vOnB6St0dCTFjs2T36W44kBFv7TVU7tirCoahVn4wiWMn0j7nmZVavXibPBcmFb3gHRufT8oy105LQGmcsWK6RRn84q49RgbieX5RZlXlulS_koLzNGsfVcSowop8wuotGnqOxCmcQzWbWNNlDTWaqdF3jM_Q");'></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Main Content Two-Column Layout -->
+<div class="flex flex-col lg:flex-row gap-12">
+<!-- Left Column: Content -->
+<div class="flex-1 lg:max-w-[65%]">
+<!-- Overview Section -->
+<section class="mb-12">
+<h2 class="text-2xl font-bold mb-4 border-l-4 border-primary pl-4">Overview</h2>
+<p class="text-[#617c89] leading-relaxed mb-6">
+                        Embark on a transformative 7-day journey through the heart of Bali. This curated experience blends spiritual wellness with adventurous exploration. From the mist-covered rice terraces of Ubud to the sacred water temples of Tirta Empul, you'll discover the "Island of the Gods" through local eyes.
+                    </p>
+<div class="grid grid-cols-3 gap-6">
+<div class="bg-white dark:bg-gray-800 p-4 rounded-xl border border-[#f0f3f4] dark:border-gray-700">
+<span class="material-symbols-outlined text-primary mb-2">calendar_today</span>
+<p class="text-xs text-[#617c89] uppercase font-bold tracking-wider">Duration</p>
+<p class="font-bold">7 Days</p>
+</div>
+<div class="bg-white dark:bg-gray-800 p-4 rounded-xl border border-[#f0f3f4] dark:border-gray-700">
+<span class="material-symbols-outlined text-primary mb-2">groups</span>
+<p class="text-xs text-[#617c89] uppercase font-bold tracking-wider">Group Size</p>
+<p class="font-bold">Max 12 People</p>
+</div>
+<div class="bg-white dark:bg-gray-800 p-4 rounded-xl border border-[#f0f3f4] dark:border-gray-700">
+<span class="material-symbols-outlined text-primary mb-2">translate</span>
+<p class="text-xs text-[#617c89] uppercase font-bold tracking-wider">Language</p>
+<p class="font-bold">English, Balinese</p>
+</div>
+</div>
+</section>
+<!-- Itinerary Section -->
+<section class="mb-12">
+<h2 class="text-2xl font-bold mb-8 border-l-4 border-primary pl-4">Itinerary</h2>
+<div class="space-y-0">
+<!-- Day 1 -->
+<div class="itinerary-item relative pb-8 flex gap-6">
+<div class="itinerary-line relative">
+<div class="w-6 h-6 rounded-full bg-primary flex items-center justify-center z-10 relative">
+<div class="w-2 h-2 bg-white rounded-full"></div>
+</div>
+</div>
+<div>
+<h3 class="text-lg font-bold mb-2">Day 1: Arrival &amp; Welcome Ceremony</h3>
+<p class="text-[#617c89] text-sm">Transfer from Ngurah Rai Airport to our sanctuary in Ubud. Evening traditional welcome dinner and fire dance performance.</p>
+<div class="mt-3 flex gap-4">
+<span class="flex items-center gap-1 text-xs bg-background-light dark:bg-gray-800 px-2 py-1 rounded">
+<span class="material-symbols-outlined text-[14px]">restaurant</span> Dinner
+                                    </span>
+<span class="flex items-center gap-1 text-xs bg-background-light dark:bg-gray-800 px-2 py-1 rounded">
+<span class="material-symbols-outlined text-[14px]">hotel</span> Ubud Resort
+                                    </span>
+</div>
+</div>
+</div>
+<!-- Day 2 -->
+<div class="itinerary-item relative pb-8 flex gap-6">
+<div class="itinerary-line relative">
+<div class="w-6 h-6 rounded-full border-2 border-primary bg-white dark:bg-background-dark flex items-center justify-center z-10 relative">
+<div class="w-2 h-2 bg-primary rounded-full"></div>
+</div>
+</div>
+<div>
+<h3 class="text-lg font-bold mb-2">Day 2: Sacred Temples &amp; Holy Springs</h3>
+<p class="text-[#617c89] text-sm">Sunrise visit to Tirta Empul for a traditional purification ritual. Afternoon hike through Tegalalang rice terraces.</p>
+</div>
+</div>
+<!-- Day 3 -->
+<div class="itinerary-item relative pb-8 flex gap-6">
+<div class="itinerary-line relative">
+<div class="w-6 h-6 rounded-full border-2 border-primary bg-white dark:bg-background-dark flex items-center justify-center z-10 relative">
+<div class="w-2 h-2 bg-primary rounded-full"></div>
+</div>
+</div>
+<div>
+<h3 class="text-lg font-bold mb-2">Day 3: Balinese Cooking &amp; Crafts</h3>
+<p class="text-[#617c89] text-sm">Farm-to-table cooking class in a local village. Learn the art of silver jewelry making with master artisans.</p>
+</div>
+</div>
+<!-- Day 4 -->
+<div class="itinerary-item relative pb-8 flex gap-6">
+<div class="itinerary-line relative">
+<div class="w-6 h-6 rounded-full border-2 border-primary bg-white dark:bg-background-dark flex items-center justify-center z-10 relative">
+<div class="w-2 h-2 bg-primary rounded-full"></div>
+</div>
+</div>
+<div>
+<h3 class="text-lg font-bold mb-2">Day 4: Jungle Trek &amp; Waterfall Bliss</h3>
+<p class="text-[#617c89] text-sm">Moderate trek through untouched tropical rainforest, culminating in a swim at Kanto Lampo waterfall.</p>
+</div>
+</div>
+</div>
+<button class="mt-4 text-primary font-bold flex items-center gap-2 hover:underline">
+                        View full 7-day itinerary <span class="material-symbols-outlined">expand_more</span>
+</button>
+</section>
+<!-- Included/Excluded -->
+<section class="mb-12">
+<h2 class="text-2xl font-bold mb-6 border-l-4 border-primary pl-4">Included &amp; Excluded</h2>
+<div class="grid md:grid-cols-2 gap-8">
+<div class="bg-green-50/50 dark:bg-green-900/10 p-6 rounded-xl">
+<p class="font-bold text-green-700 dark:text-green-400 mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined">check_circle</span> What's Included
+                            </p>
+<ul class="space-y-3">
+<li class="flex items-start gap-3 text-sm text-[#111618] dark:text-gray-300">
+<span class="material-symbols-outlined text-green-600 text-sm mt-1">check</span>
+                                    6 Nights in Boutique Luxury Resorts
+                                </li>
+<li class="flex items-start gap-3 text-sm text-[#111618] dark:text-gray-300">
+<span class="material-symbols-outlined text-green-600 text-sm mt-1">check</span>
+                                    Daily Breakfast and 4 Signature Dinners
+                                </li>
+<li class="flex items-start gap-3 text-sm text-[#111618] dark:text-gray-300">
+<span class="material-symbols-outlined text-green-600 text-sm mt-1">check</span>
+                                    Private Air-Conditioned Transportation
+                                </li>
+<li class="flex items-start gap-3 text-sm text-[#111618] dark:text-gray-300">
+<span class="material-symbols-outlined text-green-600 text-sm mt-1">check</span>
+                                    All Entrance Fees and Activities
+                                </li>
+</ul>
+</div>
+<div class="bg-red-50/50 dark:bg-red-900/10 p-6 rounded-xl">
+<p class="font-bold text-red-700 dark:text-red-400 mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined">cancel</span> What's Excluded
+                            </p>
+<ul class="space-y-3">
+<li class="flex items-start gap-3 text-sm text-[#111618] dark:text-gray-300">
+<span class="material-symbols-outlined text-red-600 text-sm mt-1">close</span>
+                                    International Airfare
+                                </li>
+<li class="flex items-start gap-3 text-sm text-[#111618] dark:text-gray-300">
+<span class="material-symbols-outlined text-red-600 text-sm mt-1">close</span>
+                                    Travel Insurance (Mandatory)
+                                </li>
+<li class="flex items-start gap-3 text-sm text-[#111618] dark:text-gray-300">
+<span class="material-symbols-outlined text-red-600 text-sm mt-1">close</span>
+                                    Personal Expenses &amp; Tips
+                                </li>
+</ul>
+</div>
+</div>
+</section>
+<!-- Rating Summary -->
+<section class="mb-12">
+<h2 class="text-2xl font-bold mb-6 border-l-4 border-primary pl-4">Reviews</h2>
+<div class="flex flex-wrap gap-x-12 gap-y-8 bg-white dark:bg-gray-800 p-8 rounded-xl border border-[#f0f3f4] dark:border-gray-700">
+<div class="flex flex-col items-center justify-center gap-2 border-r border-gray-100 dark:border-gray-700 pr-12">
+<p class="text-[#111618] dark:text-white text-5xl font-black leading-tight tracking-[-0.033em]">4.9</p>
+<div class="flex gap-0.5 text-yellow-500">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star_half</span>
+</div>
+<p class="text-[#617c89] text-sm font-normal">248 reviews</p>
+</div>
+<div class="grid min-w-[300px] flex-1 grid-cols-[30px_1fr_45px] items-center gap-y-2">
+<p class="text-[#111618] dark:text-white text-sm">5</p>
+<div class="flex h-2 flex-1 overflow-hidden rounded-full bg-[#dbe2e6] dark:bg-gray-700"><div class="rounded-full bg-primary" style="width: 88%;"></div></div>
+<p class="text-[#617c89] text-xs text-right">88%</p>
+<p class="text-[#111618] dark:text-white text-sm">4</p>
+<div class="flex h-2 flex-1 overflow-hidden rounded-full bg-[#dbe2e6] dark:bg-gray-700"><div class="rounded-full bg-primary" style="width: 10%;"></div></div>
+<p class="text-[#617c89] text-xs text-right">10%</p>
+<p class="text-[#111618] dark:text-white text-sm">3</p>
+<div class="flex h-2 flex-1 overflow-hidden rounded-full bg-[#dbe2e6] dark:bg-gray-700"><div class="rounded-full bg-primary" style="width: 1%;"></div></div>
+<p class="text-[#617c89] text-xs text-right">1%</p>
+<p class="text-[#111618] dark:text-white text-sm">2</p>
+<div class="flex h-2 flex-1 overflow-hidden rounded-full bg-[#dbe2e6] dark:bg-gray-700"><div class="rounded-full bg-primary" style="width: 1%;"></div></div>
+<p class="text-[#617c89] text-xs text-right">1%</p>
+<p class="text-[#111618] dark:text-white text-sm">1</p>
+<div class="flex h-2 flex-1 overflow-hidden rounded-full bg-[#dbe2e6] dark:bg-gray-700"><div class="rounded-full bg-primary" style="width: 0%;"></div></div>
+<p class="text-[#617c89] text-xs text-right">0%</p>
+</div>
+</div>
+</section>
+</div>
+<!-- Right Column: Sticky Booking Widget -->
+<aside class="flex-1 lg:max-w-[35%]">
+<div class="sticky top-24">
+<div class="bg-white dark:bg-gray-800 rounded-2xl shadow-xl border border-[#f0f3f4] dark:border-gray-700 p-6">
+<div class="flex justify-between items-baseline mb-6">
+<div>
+<span class="text-3xl font-black text-primary">$1,299</span>
+<span class="text-[#617c89] text-sm ml-1">/ person</span>
+</div>
+<div class="bg-primary/10 text-primary text-[10px] font-bold uppercase tracking-widest px-2 py-1 rounded">Best Value</div>
+</div>
+<div class="space-y-4 mb-6">
+<div>
+<label class="block text-xs font-bold text-[#617c89] uppercase mb-1">Select Dates</label>
+<div class="relative">
+<input class="w-full bg-background-light dark:bg-gray-900 border-none rounded-lg py-3 pl-10 text-sm focus:ring-2 focus:ring-primary" readonly="" type="text" value="Oct 12 - Oct 19, 2024"/>
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-[#617c89] text-[20px]">calendar_month</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<label class="block text-xs font-bold text-[#617c89] uppercase mb-1">Guests</label>
+<div class="relative">
+<select class="w-full bg-background-light dark:bg-gray-900 border-none rounded-lg py-3 pl-10 text-sm focus:ring-2 focus:ring-primary">
+<option>2 Guests</option>
+<option>1 Guest</option>
+<option>3 Guests</option>
+<option>4 Guests</option>
+</select>
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-[#617c89] text-[20px]">person</span>
+</div>
+</div>
+<div>
+<label class="block text-xs font-bold text-[#617c89] uppercase mb-1">Room Type</label>
+<div class="relative">
+<select class="w-full bg-background-light dark:bg-gray-900 border-none rounded-lg py-3 pl-10 text-sm focus:ring-2 focus:ring-primary">
+<option>King Suite</option>
+<option>Twin Room</option>
+</select>
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-[#617c89] text-[20px]">bed</span>
+</div>
+</div>
+</div>
+</div>
+<div class="border-t border-[#f0f3f4] dark:border-gray-700 pt-4 mb-6 space-y-2">
+<div class="flex justify-between text-sm">
+<span class="text-[#617c89]">$1,299 x 2 Guests</span>
+<span class="font-medium">$2,598</span>
+</div>
+<div class="flex justify-between text-sm">
+<span class="text-[#617c89]">Service Fee</span>
+<span class="font-medium">$120</span>
+</div>
+<div class="flex justify-between text-lg font-bold pt-2">
+<span>Total</span>
+<span class="text-primary">$2,718</span>
+</div>
+</div>
+<button class="w-full bg-primary text-white py-4 rounded-xl font-bold text-lg hover:bg-primary/90 transition-all shadow-lg shadow-primary/20 flex items-center justify-center gap-2">
+                            Book Now <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<p class="text-center text-[11px] text-[#617c89] mt-4">Free cancellation up to 14 days before departure</p>
+</div>
+<!-- Help Widget -->
+<div class="mt-6 bg-white dark:bg-gray-800 rounded-xl p-4 border border-[#f0f3f4] dark:border-gray-700 flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">support_agent</span>
+</div>
+<div>
+<p class="text-sm font-bold">Need help with booking?</p>
+<a class="text-xs text-primary font-medium hover:underline" href="#">Chat with a travel expert</a>
+</div>
+</div>
+</div>
+</aside>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-white dark:bg-background-dark border-t border-[#f0f3f4] dark:border-gray-800 py-12 mt-20">
+<div class="max-w-[1280px] mx-auto px-6 lg:px-40 grid grid-cols-1 md:grid-cols-4 gap-12">
+<div class="col-span-1 md:col-span-1">
+<div class="flex items-center gap-2 text-primary mb-6">
+<svg class="size-6" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M39.475 21.6262C40.358 21.4363 40.6863 21.5589 40.7581 21.5934C40.7876 21.655 40.8547 21.857 40.8082 22.3336C40.7408 23.0255 40.4502 24.0046 39.8572 25.2301C38.6799 27.6631 36.5085 30.6631 33.5858 33.5858C30.6631 36.5085 27.6632 38.6799 25.2301 39.8572C24.0046 40.4502 23.0255 40.7407 22.3336 40.8082C21.8571 40.8547 21.6551 40.7875 21.5934 40.7581C21.5589 40.6863 21.4363 40.358 21.6262 39.475C21.8562 38.4054 22.4689 36.9657 23.5038 35.2817C24.7575 33.2417 26.5497 30.9744 28.7621 28.762C30.9744 26.5497 33.2417 24.7574 35.2817 23.5037C36.9657 22.4689 38.4054 21.8562 39.475 21.6262ZM4.41189 29.2403L18.7597 43.5881C19.8813 44.7097 21.4027 44.9179 22.7217 44.7893C24.0585 44.659 25.5148 44.1631 26.9723 43.4579C29.9052 42.0387 33.2618 39.5667 36.4142 36.4142C39.5667 33.2618 42.0387 29.9052 43.4579 26.9723C44.1631 25.5148 44.659 24.0585 44.7893 22.7217C44.9179 21.4027 44.7097 19.8813 43.5881 18.7597L29.2403 4.41187C27.8527 3.02428 25.8765 3.02573 24.2861 3.36776C22.6081 3.72863 20.7334 4.58419 18.8396 5.74801C16.4978 7.18716 13.9881 9.18353 11.5858 11.5858C9.18354 13.988 7.18717 16.4978 5.74802 18.8396C4.58421 20.7334 3.72865 22.6081 3.36778 24.2861C3.02574 25.8765 3.02429 27.8527 4.41189 29.2403Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+<span class="text-lg font-bold text-[#111618] dark:text-white">TravelEase</span>
+</div>
+<p class="text-[#617c89] text-sm leading-relaxed">
+                    Crafting unforgettable travel experiences since 2012. Join our community of explorers.
+                </p>
+</div>
+<div>
+<h4 class="font-bold mb-4">Explore</h4>
+<ul class="space-y-2 text-sm text-[#617c89]">
+<li><a class="hover:text-primary transition-colors" href="#">Popular Destinations</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Adventure Tours</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Luxury Escapes</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Last Minute Deals</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold mb-4">Support</h4>
+<ul class="space-y-2 text-sm text-[#617c89]">
+<li><a class="hover:text-primary transition-colors" href="#">Help Center</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Safety Information</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Cancellation Options</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Contact Us</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold mb-4">Newsletter</h4>
+<p class="text-xs text-[#617c89] mb-4">Get travel inspiration and deals directly in your inbox.</p>
+<div class="flex gap-2">
+<input class="flex-1 bg-background-light dark:bg-gray-800 border-none rounded-lg text-xs py-2 px-4 focus:ring-1 focus:ring-primary" placeholder="Email address" type="email"/>
+<button class="bg-primary text-white px-4 py-2 rounded-lg text-xs font-bold">Join</button>
+</div>
+</div>
+</div>
+<div class="max-w-[1280px] mx-auto px-6 lg:px-40 mt-12 pt-8 border-t border-[#f0f3f4] dark:border-gray-800 flex justify-between items-center text-xs text-[#617c89]">
+<p>© 2024 TravelEase Inc. All rights reserved.</p>
+<div class="flex gap-6">
+<a class="hover:text-primary" href="#">Privacy Policy</a>
+<a class="hover:text-primary" href="#">Terms of Service</a>
+</div>
+</div>
+</footer>
+</body></html>

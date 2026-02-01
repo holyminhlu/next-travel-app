@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Travel News - Modern Travel Blog</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#13a4ec",
+              "background-light": "#f6f7f8",
+              "background-dark": "#101c22",
+            },
+            fontFamily: {
+              "display": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .masonry-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-[#111618] dark:text-white transition-colors duration-300">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-50 w-full bg-white/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-[#f0f3f4] dark:border-gray-800">
+<div class="max-w-[1440px] mx-auto px-10 py-4 flex items-center justify-between">
+<div class="flex items-center gap-10">
+<div class="flex items-center gap-3">
+<div class="size-8 bg-primary rounded-lg flex items-center justify-center text-white">
+<span class="material-symbols-outlined">explore</span>
+</div>
+<h2 class="text-xl font-bold tracking-tight">Travel News</h2>
+</div>
+<nav class="hidden lg:flex items-center gap-8">
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Destinations</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Travel Tips</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Guides</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">News</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Gear</a>
+</nav>
+</div>
+<div class="flex items-center gap-6">
+<label class="hidden md:flex items-center relative min-w-64">
+<span class="material-symbols-outlined absolute left-3 text-[#617c89]">search</span>
+<input class="w-full h-10 pl-10 pr-4 rounded-lg border-none bg-[#f0f3f4] dark:bg-gray-800 text-sm focus:ring-2 focus:ring-primary/50" placeholder="Search articles, guides..." type="text"/>
+</label>
+<button class="bg-primary text-white px-6 py-2 rounded-lg text-sm font-bold hover:bg-primary/90 transition-all">
+                    Sign Up
+                </button>
+<div class="size-10 rounded-full border-2 border-primary/20 bg-cover bg-center" data-alt="User profile avatar" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD0UtUTCnphrb-i9aA7I7a4EQ9R7RxwG0xjGiJf7amZ8VpaSxtTz55wn0gyfjzyybSyWjj_oJSgkn5YCO2G5p4FVriyLDJQG2igLeYZS3GjsLiNhG1HBwgzNqzYoSFyTQP1IJql9txv4W8a-ghS9svgQp1R5bkmDhR3f2VoJm7TzM6swrD3TWVSB_r9Tb6VQBL3gutniCvqvJtCw0HXdV-E56ptml4YZ2jCTDBjMZcqNRLaPXc8VONA9kwZyi0PsdO2WJ2YEAbmVw');"></div>
+</div>
+</div>
+</header>
+<main class="max-w-[1440px] mx-auto pb-20">
+<!-- Hero Section -->
+<section class="px-10 py-8">
+<div class="relative w-full h-[600px] rounded-xl overflow-hidden group">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="Scenic view of the Amalfi Coast with turquoise water" style="background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.7)), url('https://lh3.googleusercontent.com/aida-public/AB6AXuC1hfW-Z75ClOTf44gu8m7ncybBlyKRT7aMpwZda4dqX7LnnjEixZ0eVMUncHtF7_6dnjcKMhigLch0Vx48UQ0SCWnv6_SNEDTgmnSIo9WoPr8dCEa6E69DTdDmpZXWKs6lXmHaMFjTm_saFzxHC5OxgH2yRsyFKpVf-1tsq6sTDIcw-cdS0i6WtH33qObrXeyDW7OqnQyXTTrCGRtOx8WDs4Ow9GBWciMoJUszYXa27XIXVEHGtUqrjNyexPBZCFaUNMjGE6UyVA');">
+</div>
+<div class="absolute bottom-0 left-0 p-12 max-w-3xl">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary text-white text-xs font-bold uppercase tracking-wider mb-6">
+<span class="material-symbols-outlined text-sm">star</span>
+                        Featured Article
+                    </div>
+<h1 class="text-white text-5xl font-black leading-tight tracking-tight mb-4">
+                        The Hidden Gems of the Amalfi Coast: A 2024 Guide
+                    </h1>
+<p class="text-white/90 text-lg font-normal mb-8 leading-relaxed max-w-2xl">
+                        Discover the secluded beaches and artisanal boutiques that make this Italian coastline a timeless escape. Beyond the crowds lies a world of quiet luxury and authentic culture.
+                    </p>
+<div class="flex items-center gap-6">
+<button class="bg-primary hover:bg-white hover:text-primary text-white px-8 py-4 rounded-lg font-bold transition-all flex items-center gap-2">
+                            Read Full Story
+                            <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<div class="flex items-center gap-3 text-white">
+<div class="size-10 rounded-full border border-white/30 bg-cover bg-center" data-alt="Author portrait" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCj0i4ODY2_N6Fg6hTSSKes61qh2swUC2mOY3puBYghuoeCeH082X8mak_17t4RyUJcDD9c8B8Y17cW96JLWgLqe-oVyV36SXMJLhthjQ6rB3e6QrXXOUl3CQgA75FiLsMX_e9-oxlK-aSeHBbkCAcxZMFFtx1Ggtcav2jpQWf7v9EX1c-PTsgp_yrv1mqhwUZCfs98vxcZeUp0EEr5kkDx9969hH0qUh8FmE0CiZ2iGM0xULWYYfdNewdEy2fq4UL6jaqd6jHbJg');"></div>
+<div>
+<p class="text-sm font-bold">Elena Rossi</p>
+<p class="text-xs text-white/70">Travel Editor • 12 min read</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Category Tags -->
+<section class="px-10 py-6">
+<div class="flex items-center gap-3 overflow-x-auto no-scrollbar pb-2">
+<button class="flex h-10 shrink-0 items-center justify-center gap-2 rounded-full bg-primary text-white px-6 text-sm font-bold transition-all">
+                    All Stories
+                </button>
+<button class="flex h-10 shrink-0 items-center justify-center gap-2 rounded-full bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 px-6 text-sm font-medium border border-[#f0f3f4] dark:border-gray-700 transition-all">
+                    Travel Tips
+                </button>
+<button class="flex h-10 shrink-0 items-center justify-center gap-2 rounded-full bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 px-6 text-sm font-medium border border-[#f0f3f4] dark:border-gray-700 transition-all">
+                    Destination Guide
+                </button>
+<button class="flex h-10 shrink-0 items-center justify-center gap-2 rounded-full bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 px-6 text-sm font-medium border border-[#f0f3f4] dark:border-gray-700 transition-all">
+                    Solo Travel
+                </button>
+<button class="flex h-10 shrink-0 items-center justify-center gap-2 rounded-full bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 px-6 text-sm font-medium border border-[#f0f3f4] dark:border-gray-700 transition-all">
+                    Foodie Travel
+                </button>
+<button class="flex h-10 shrink-0 items-center justify-center gap-2 rounded-full bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 px-6 text-sm font-medium border border-[#f0f3f4] dark:border-gray-700 transition-all">
+                    Industry News
+                </button>
+<button class="flex h-10 shrink-0 items-center justify-center gap-2 rounded-full bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 px-6 text-sm font-medium border border-[#f0f3f4] dark:border-gray-700 transition-all">
+                    Sustainable Gear
+                </button>
+</div>
+</section>
+<!-- Grid Feed Section -->
+<section class="px-10 pt-10">
+<div class="flex items-center justify-between mb-8">
+<h2 class="text-3xl font-black tracking-tight">Latest Stories</h2>
+<div class="flex items-center gap-2 text-primary font-bold cursor-pointer hover:underline">
+                    View Archive <span class="material-symbols-outlined">chevron_right</span>
+</div>
+</div>
+<div class="masonry-grid">
+<!-- Card 1 -->
+<article class="flex flex-col gap-4 group cursor-pointer">
+<div class="w-full aspect-[4/3] rounded-xl overflow-hidden relative shadow-sm">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="Solo traveler looking at a mountain range" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuACk8XVUPhencma1CF77HcES_xWLnP-qxa30koxGryVmXy4Ef93crjpXnx0y5AkMX-8mvDs_FDpJAOhHXhjxPjd_PN9KMFst-aS2zo2gZMc_lYmrtFFrjHIjCI2qEKBwZYE1I53SKhWddJFVmRdCtNN4WJWKysuWi9jKMgI34oSnDU_DT2vir7u_kFjiJeorBxB__4siQk1ls-18JmD1ZAbkPYYDUCchRbNiHipZLpuXKkj7GABzlYbaRi7-sA8ZinsXhYX2hGPXA');"></div>
+<div class="absolute top-4 left-4">
+<span class="bg-white/90 dark:bg-background-dark/90 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider text-primary">Tips</span>
+</div>
+</div>
+<div>
+<div class="flex items-center gap-2 text-[#617c89] text-xs font-medium mb-2">
+<span>Mar 24, 2024</span>
+<span>•</span>
+<span>5 min read</span>
+</div>
+<h3 class="text-xl font-bold leading-tight group-hover:text-primary transition-colors mb-2">10 Budget Hacks for Solo Travelers</h3>
+<p class="text-[#617c89] dark:text-gray-400 text-sm line-clamp-2 leading-relaxed">
+                            Learn how to see the world without breaking the bank with these expert tips from seasoned explorers.
+                        </p>
+</div>
+</article>
+<!-- Card 2 -->
+<article class="flex flex-col gap-4 group cursor-pointer">
+<div class="w-full aspect-[4/3] rounded-xl overflow-hidden relative shadow-sm">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="Japanese street food market at night" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCEU7R4ZODgzAu5wWqp8CFz3Bm009m8Tb7nqHvjLy2JgHhHgxUPmbEe_UHZeFCkSeBy-bUmJSOEI6Y4MOmyqp5lVlQUnBQg4zXxsCyuQrOrswEkoOufACU-Vr0-JzxC7e-P8rT9XqLEpIwDZb8D1TpxpX51xTpBjo1k98IPG1WyVrNqt_4CqLfYMniYZGMhMi2bxDCFJ3v9Cz_YfYDjEvUvgkJlU5OFZ7T9YL80ZvMQHg-fs5j_u2l7tRMNEUeotWia2Q7k-_Qazw');"></div>
+<div class="absolute top-4 left-4">
+<span class="bg-white/90 dark:bg-background-dark/90 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider text-primary">Destination</span>
+</div>
+</div>
+<div>
+<div class="flex items-center gap-2 text-[#617c89] text-xs font-medium mb-2">
+<span>Mar 22, 2024</span>
+<span>•</span>
+<span>8 min read</span>
+</div>
+<h3 class="text-xl font-bold leading-tight group-hover:text-primary transition-colors mb-2">Why Tokyo is the Ultimate Foodie Destination</h3>
+<p class="text-[#617c89] dark:text-gray-400 text-sm line-clamp-2 leading-relaxed">
+                            From street food stalls to Michelin stars, Tokyo is a culinary dream that surprises at every corner.
+                        </p>
+</div>
+</article>
+<!-- Card 3 -->
+<article class="flex flex-col gap-4 group cursor-pointer">
+<div class="w-full aspect-[4/3] rounded-xl overflow-hidden relative shadow-sm">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="Airplane wing over a sunset horizon" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCiVl_h_uiDy8vlC_Fpu_EIp9HB8P7w--tCmIO6QlgWZIRSROyf5OJQ4M1FIgZr56PDuPuCSXc02MmxB_3Lmb65LKKCZOUZY6Qu3LicyAF5f3Qa8EE9Ap7cYy3GVYLUpX085eyW-PuS6FMzawnvUhm8HouFFcje50VA05QzolvMvIE2L9kIh7PNUxGvOlvh-2Y82NNKsE2eKkUx4Zx4IdRHAu6ml0-YXMekLPmAPvV7MZ4IPLjrxVJt8ADnU6sZmZiyEGUMhzHEFw');"></div>
+<div class="absolute top-4 left-4">
+<span class="bg-white/90 dark:bg-background-dark/90 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider text-primary">News</span>
+</div>
+</div>
+<div>
+<div class="flex items-center gap-2 text-[#617c89] text-xs font-medium mb-2">
+<span>Mar 20, 2024</span>
+<span>•</span>
+<span>4 min read</span>
+</div>
+<h3 class="text-xl font-bold leading-tight group-hover:text-primary transition-colors mb-2">New Airline Routes Opening This Summer</h3>
+<p class="text-[#617c89] dark:text-gray-400 text-sm line-clamp-2 leading-relaxed">
+                            Major carriers announce direct flights to several hidden European gems starting this June.
+                        </p>
+</div>
+</article>
+<!-- Card 4 -->
+<article class="flex flex-col gap-4 group cursor-pointer">
+<div class="w-full aspect-[4/3] rounded-xl overflow-hidden relative shadow-sm">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="Northern Lights over an Icelandic landscape" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCnCWec_oRWCt8FHookfHd0cZssOH2FfXmuH1279x-kkcFdnyjQfZwD_-GZm0JXt-DHDVr1rxk4blxPR3FJbkhqTyJmL_Hph3KGEfSyw04o2uWthhhBBGfSm2rnHjqso4jYE0U24wTR5IKrgmeAG0mLfw-_MS_rsUWRmotlm8LRH6TLHEu_KEbZ-urowuszD9IJGC-yw3_8mjyWn3wvkoVFbeuyBqmSjVoLMl9LAINtzoQCJxbO_7SBS8CbxqfV6kQGT4DT1vwzZw');"></div>
+<div class="absolute top-4 left-4">
+<span class="bg-white/90 dark:bg-background-dark/90 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider text-primary">Guide</span>
+</div>
+</div>
+<div>
+<div class="flex items-center gap-2 text-[#617c89] text-xs font-medium mb-2">
+<span>Mar 18, 2024</span>
+<span>•</span>
+<span>10 min read</span>
+</div>
+<h3 class="text-xl font-bold leading-tight group-hover:text-primary transition-colors mb-2">Northern Lights in Iceland: 2024 Update</h3>
+<p class="text-[#617c89] dark:text-gray-400 text-sm line-clamp-2 leading-relaxed">
+                            A guide to catching the aurora borealis during the peak solar cycle this winter season.
+                        </p>
+</div>
+</article>
+<!-- Card 5 -->
+<article class="flex flex-col gap-4 group cursor-pointer">
+<div class="w-full aspect-[4/3] rounded-xl overflow-hidden relative shadow-sm">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="Eco-friendly travel gear laid out" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDc4dOoSdBgZpVfJvkTmKRdTuEFpuKGNrNFFmFP8D71fVgi_39v8zvM-DG9LsN6o2vRaqHIqqxaiII5_o8j-MERLM27HRPjiss1VYfhPsWamwrgNnGs3PuIpZsCYbZwkCmNlhKiNE9KSvgo1n3Ige8mdUpET8MsC154vas6ZQJcqei3sBgHQ-Ehbgq34O8EP2Fs4cZY_BkJZAY9KF5CVjQe9wzlp3URDBoWGd57ba9WaLVwx9O0C-tPov2HajQZqJRQkgacvgEW2g');"></div>
+<div class="absolute top-4 left-4">
+<span class="bg-white/90 dark:bg-background-dark/90 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider text-primary">Gear</span>
+</div>
+</div>
+<div>
+<div class="flex items-center gap-2 text-[#617c89] text-xs font-medium mb-2">
+<span>Mar 15, 2024</span>
+<span>•</span>
+<span>6 min read</span>
+</div>
+<h3 class="text-xl font-bold leading-tight group-hover:text-primary transition-colors mb-2">Sustainable Travel: Eco-Friendly Packing</h3>
+<p class="text-[#617c89] dark:text-gray-400 text-sm line-clamp-2 leading-relaxed">
+                            Reduce your footprint with these essential gear recommendations for the conscious traveler.
+                        </p>
+</div>
+</article>
+<!-- Card 6 -->
+<article class="flex flex-col gap-4 group cursor-pointer">
+<div class="w-full aspect-[4/3] rounded-xl overflow-hidden relative shadow-sm">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110" data-alt="Colorful colonial building in Mexico City" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDGfyw4AyuzQbfs-La6vi7S3U9n2qVi-Q6x4SSQ7o2R2cIoxoJUyRsbfqQWbaaACzrcook8S0tjL5wkrHL7MULVFZWAqwykRYtQYFwhVfrl4DJpgc6hmf7DLv1OfRsJTwlmfGOS3FW6ahyK0z6CzytyquQLh68LrXGKdUDgy2YedWdMRVLb4BxeqTG729wntL4lBr0pwcaHs6k72BFnEcMCRraQhGYr0Z0eP57mP3DPpfBRSO_ZU9QiavnydQee-sXzvE8JSSd1iQ');"></div>
+<div class="absolute top-4 left-4">
+<span class="bg-white/90 dark:bg-background-dark/90 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider text-primary">Destination</span>
+</div>
+</div>
+<div>
+<div class="flex items-center gap-2 text-[#617c89] text-xs font-medium mb-2">
+<span>Mar 12, 2024</span>
+<span>•</span>
+<span>7 min read</span>
+</div>
+<h3 class="text-xl font-bold leading-tight group-hover:text-primary transition-colors mb-2">A Weekend in Mexico City: Itinerary</h3>
+<p class="text-[#617c89] dark:text-gray-400 text-sm line-clamp-2 leading-relaxed">
+                            The ultimate itinerary for a culture-filled weekend in CDMX, from art galleries to taco stands.
+                        </p>
+</div>
+</article>
+</div>
+<!-- Load More Button -->
+<div class="flex justify-center mt-16">
+<button class="bg-white dark:bg-gray-800 border border-[#f0f3f4] dark:border-gray-700 hover:border-primary text-primary px-10 py-4 rounded-lg font-bold transition-all shadow-sm">
+                    Load More Stories
+                </button>
+</div>
+</section>
+<!-- Newsletter Section -->
+<section class="mx-10 mt-20 mb-10 bg-primary/10 dark:bg-primary/5 rounded-2xl p-12 text-center">
+<h2 class="text-3xl font-black mb-4">Never miss a story.</h2>
+<p class="text-[#617c89] dark:text-gray-400 mb-8 max-w-lg mx-auto">
+                Join our community of 50,000+ travelers and get our weekly newsletter with hidden gems and travel hacks.
+            </p>
+<div class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+<input class="flex-1 rounded-lg border-none bg-white dark:bg-gray-800 px-4 py-3 text-sm focus:ring-2 focus:ring-primary/50" placeholder="Your email address" type="email"/>
+<button class="bg-primary text-white px-8 py-3 rounded-lg font-bold hover:bg-primary/90 transition-all">
+                    Subscribe
+                </button>
+</div>
+<p class="text-[10px] text-[#617c89] mt-4 uppercase tracking-widest font-bold">No spam. Just travel inspiration.</p>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-white dark:bg-background-dark border-t border-[#f0f3f4] dark:border-gray-800 pt-16 pb-8">
+<div class="max-w-[1440px] mx-auto px-10">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+<div class="col-span-1">
+<div class="flex items-center gap-3 mb-6">
+<div class="size-6 bg-primary rounded flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-sm">explore</span>
+</div>
+<h2 class="text-lg font-bold tracking-tight">Travel News</h2>
+</div>
+<p class="text-sm text-[#617c89] leading-relaxed">
+                        Curating the world's most incredible travel experiences, news, and tips since 2018.
+                    </p>
+</div>
+<div>
+<h4 class="font-bold mb-6">Explore</h4>
+<ul class="flex flex-col gap-4 text-sm text-[#617c89]">
+<li><a class="hover:text-primary transition-colors" href="#">Destinations</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Travel Tips</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">News</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Guides</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold mb-6">Company</h4>
+<ul class="flex flex-col gap-4 text-sm text-[#617c89]">
+<li><a class="hover:text-primary transition-colors" href="#">About Us</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Editorial Policy</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Careers</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Contact</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold mb-6">Social</h4>
+<div class="flex gap-4">
+<div class="size-10 rounded-full bg-[#f0f3f4] dark:bg-gray-800 flex items-center justify-center cursor-pointer hover:bg-primary hover:text-white transition-all">
+<span class="material-symbols-outlined">public</span>
+</div>
+<div class="size-10 rounded-full bg-[#f0f3f4] dark:bg-gray-800 flex items-center justify-center cursor-pointer hover:bg-primary hover:text-white transition-all">
+<span class="material-symbols-outlined">camera</span>
+</div>
+<div class="size-10 rounded-full bg-[#f0f3f4] dark:bg-gray-800 flex items-center justify-center cursor-pointer hover:bg-primary hover:text-white transition-all">
+<span class="material-symbols-outlined">alternate_email</span>
+</div>
+</div>
+</div>
+</div>
+<div class="border-t border-[#f0f3f4] dark:border-gray-800 pt-8 flex flex-col md:row items-center justify-between gap-4">
+<p class="text-xs text-[#617c89]">© 2024 Travel News Media Group. All rights reserved.</p>
+<div class="flex gap-8 text-xs text-[#617c89]">
+<a class="hover:underline" href="#">Privacy Policy</a>
+<a class="hover:underline" href="#">Terms of Service</a>
+</div>
+</div>
+</div>
+</footer>
+</body></html>
